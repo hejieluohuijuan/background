@@ -1,0 +1,36 @@
+.out_login{
+    width:330px;
+    margin:0 auto;
+    margin-top:10%;
+    box-shadow: 0 0 30px #E3E3E3;
+}
+.title h2{
+    text-align: center;
+    padding-top:20px;
+    font-weight: bold;
+}
+input{
+    margin-top:12px;
+    border-radius: 5px;
+
+}
+button{
+    margin-top:12px;
+}
+input.layui-input{
+    width:80%;
+    margin-left:10%;
+}
+.layui-btn{
+    width:80%;
+    margin-left:10%;
+    margin-bottom:20px
+}
+.layui-form-label{
+    color:#9C9C9C;
+    font-size:12px;
+    padding:10px 0px;
+}
+.layui-input-block{
+    margin-left:90px;
+}
