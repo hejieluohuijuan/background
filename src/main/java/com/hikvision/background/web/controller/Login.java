@@ -53,7 +53,7 @@ public class Login extends WebMvcConfigurerAdapter {
     public void addInterceptors(InterceptorRegistry registry) {
         // 添加拦截的请求，并排除几个不拦截的请求
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/index.html", "/", "user/login","/static/**");
+                .excludePathPatterns("/index.html", "/", "user/login","/static/**","/login");
     }
     //修改默认静态资源位置
     @Override

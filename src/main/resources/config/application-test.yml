@@ -6,15 +6,15 @@ server:
 spring:
   datasource:
     username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/hzw_bk?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    password: sjw123456
+    url: jdbc:mysql://39.105.200.232:3306/hzw_bk?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
   flyway:
-    url: jdbc:mysql://localhost:3306/hzw_bk?serverTimezone=UTC
+    url: jdbc:mysql://39.105.200.232:3306/hzw_bk?serverTimezone=UTC
     schemas: hzw_bk
     user: root
-    password: 123456
+    password: sjw123456
     baseline-on-migrate: false
     mvc:
       static-path-pattern: /**
