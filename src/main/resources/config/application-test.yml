@@ -18,6 +18,10 @@ spring:
     baseline-on-migrate: false
     mvc:
       static-path-pattern: /**
+  mvc:
+    view:
+      prefix: classpath*:/templates/
+      suffix: .html
 
 
 ####mybatis配置
@@ -31,4 +35,4 @@ mybatis:
 logging:
   config: classpath:config/logback-test.xml
 resources: # 指定静态资源的路径
-  static-locations: classpath:/static/
+  static-locations: classpath:/static/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates

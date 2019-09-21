@@ -8,8 +8,9 @@
     <title>登录</title>
 <body>
 <div class="out_login">
-    <form class="layui-form" action="" method="post" id="formGrid">
+    <form class="layui-form" action="/user/login" method="post" id="formGrid">
         <div class="title"><h2>登录</h2></div>
+        <div class="l_err"></div>
         <input type="text" name="userName" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
                class="layui-input">
         <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
@@ -19,7 +20,7 @@
                 <input type="checkbox" name="storePwd" lay-skin="switch">
             </div>
         <!--<button type="submit" class="layui-btn layui-btn-normal submit">登录</button>-->
-        <input type="submit" class="layui-btn layui-btn-normal submit" value="登录"/>
+        <input type="button" class="layui-btn layui-btn-normal button" value="登录"/>
     </form>
 </div>
 </body>
