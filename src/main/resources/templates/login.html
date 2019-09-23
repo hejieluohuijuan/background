@@ -10,6 +10,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>登录</title>
 <body>
+<!--登陆界面切换-->
+<div class="layui-form">
+    <select name="city" lay-verify="">
+        <option value="">请选择一个城市</option>
+        <option value="010">北京</option>
+        <option value="021">上海</option>
+        <option value="0571">杭州</option>
+    </select>
+</div>
 <div class="out_login">
     <form class="layui-form" action="/user/login" method="post" id="formGrid">
         <div class="title"><h2>登录</h2></div>
