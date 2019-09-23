@@ -6,5 +6,6 @@ package com.hikvision.background.web.controller.common;
  **/
 public class ForwardConstants {
     public static final String LOGIN = "/login";
+    public static final String LOGINBAK = "/login_bak";
     public static final String LOGIN_HTML = "/templates/login.html";
 }

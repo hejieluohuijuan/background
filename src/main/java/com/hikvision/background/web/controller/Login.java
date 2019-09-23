@@ -29,8 +29,7 @@ public class Login implements WebMvcConfigurer {
     @RequestMapping("/login")
     public String toLogin() {
         //跳转到登录页面
-//        return "redirect:" + ForwardConstants.LOGIN_HTML;
-        return ForwardConstants.LOGIN;
+        return ForwardConstants.LOGINBAK;
     }
 
     @ResponseBody
