@@ -1,4 +1,6 @@
 $(function () {
+    //隐藏登录错误信息
+    errmsgHtml(false);
     $("input[type='button']").on("click", function () {
         var userName = $("input[name='userName']").val();
         var password = $("input[name='password']").val();
@@ -10,7 +12,7 @@ $(function () {
         }
         if (password.trim() == "") {
             check = false;
-            errmsg = "密码不能为空";
+            errmsg += "密码不能为空";
         }
         if (check) {
             //发送ajax
@@ -18,18 +20,37 @@ $(function () {
                 url: rootPath + "/user/login",
                 data: {
                     userName: userName,
-                    password: password
+                    password: password,
+                    storePwd:$("input[name='storePwd']").val()
                 },
-                success:function (datas) {
-                    layer.msg(datas)
+                success: function (datas) {
+                    if (datas == "success") {
+                        //用户名和密码正确
+                    } else {
+                        // 说明用户名或密码错误
+                        errmsg = "账号或密码错误";
+                        //显示登录错误信息
+                        errmsgHtml(true,errmsg)
+                    }
                 },
-                error:function(datas){
-                    alert(datas)
-
+                error: function (datas) {
                 },
-                dataType:"json",
-                type:"post"
+                type: "post"
             })
+        }else{
+            errmsgHtml(true,errmsg);
         }
     })
+    $("input[name='storePwd']").on("click",function(){
+        layer.msg($(this))
+    })
+
+    function errmsgHtml(show,errmsg) {
+        if (!show) {
+            $(".l_err").hide();
+        } else {
+            $(".err_msg").html(errmsg);
+            $(".l_err").show();
+        }
+    }
 })

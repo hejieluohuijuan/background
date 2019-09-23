@@ -40,11 +40,11 @@ public class Login implements WebMvcConfigurer {
         sysUser.setUserName(SessionUtil.getPara("userName"));
         sysUser.setPassword(SessionUtil.getPara("password"));
         SysUser user = userService.login(sysUser);
+        //判断是否选择记住我七天免登录
+        String storePwd = SessionUtil.getPara("storePwd");
         if (user != null) {
-//            return "redirect:/index.html";
             return AttrConstants.SUCCESS;
         }
-//        return "login";
         return AttrConstants.ERROR;
     }
 

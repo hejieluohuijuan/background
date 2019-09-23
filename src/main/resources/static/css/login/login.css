@@ -1,7 +1,7 @@
 .out_login{
     width:330px;
     margin:0 auto;
-    margin-top:10%;
+    margin-top:15%;
     box-shadow: 0 0 30px #E3E3E3;
 }
 .title h2{
@@ -33,4 +33,18 @@ input.layui-input{
 }
 .layui-input-block{
     margin-left:90px;
+}
+.l_err {
+    width: 80%;
+    background-color: #FFE6E6;
+    color:#9F3A38;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10%;
+    border: 1px solid #DEB3B4;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+label.err_msg {
+    padding-left: 10px;
 }
