@@ -1,7 +1,7 @@
 .out_login {
     width: 330px;
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .img_head {
@@ -68,3 +68,4 @@ label.err_msg {
     color: white;
     border-radius: 5px;
     border: 0px;
+}

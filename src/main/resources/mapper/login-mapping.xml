@@ -5,7 +5,7 @@
          SELECT MODEL_NAME FROM LOGIN_SWITCH
         WHERE DELETE_FLAG='0'
     </select>
-    <select id="loginSwitchData" resultType="java.util.HashMap">
+    <select id="loginModelData" resultType="java.util.HashMap">
       SELECT MODEL_NAME FROM LOGIN_SWITCH_DATA
         WHERE DELETE_FLAG='0'
     </select>

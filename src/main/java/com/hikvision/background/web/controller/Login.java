@@ -1,6 +1,7 @@
 package com.hikvision.background.web.controller;
 
 import com.hikvision.background.kerny.pojo.SysUser;
+import com.hikvision.background.service.LoginService;
 import com.hikvision.background.service.UserService;
 import com.hikvision.background.web.controller.common.AttrConstants;
 import com.hikvision.background.web.controller.common.ForwardConstants;
@@ -8,6 +9,7 @@ import com.hikvision.background.web.controller.component.LoginHandlerInterceptor
 import com.hikvision.background.web.util.SessionUtil.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.config.annotation.*;
 
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -25,11 +29,18 @@ import javax.servlet.http.HttpSession;
 public class Login implements WebMvcConfigurer {
     @Autowired
     private UserService userService;
+    @Autowired
+    private LoginService loginService;
 
     @RequestMapping("/login")
-    public String toLogin() {
-        //跳转到登录页面
-        return ForwardConstants.LOGINBAK;
+    public String toLogin(Model model) {
+        //跳转到登录页面根据后台的跳转页面
+        List<HashMap<String, Object>> hashMaps = loginService.loginModel();
+        String modelName = hashMaps.size() > 0 ? String.valueOf(hashMaps.get(0).get("modelName")) : ForwardConstants.LOGINBAK;
+        //获取登录列表
+        List<HashMap<String, Object>> hashMapsList = loginService.loginModelData();
+        model.addAttribute("modelLoginLists", hashMapsList);
+        return modelName;
     }
 
     @ResponseBody

@@ -21,7 +21,7 @@ $(function () {
                 data: {
                     userName: userName,
                     password: password,
-                    storePwd:$("input[name='storePwd']").val()
+                    storePwd: $("input[name='storePwd']").val()
                 },
                 success: function (datas) {
                     if (datas == "success") {
@@ -30,22 +30,22 @@ $(function () {
                         // 说明用户名或密码错误
                         errmsg = "账号或密码错误";
                         //显示登录错误信息
-                        errmsgHtml(true,errmsg)
+                        errmsgHtml(true, errmsg)
                     }
                 },
                 error: function (datas) {
                 },
                 type: "post"
             })
-        }else{
-            errmsgHtml(true,errmsg);
+        } else {
+            errmsgHtml(true, errmsg);
         }
     })
-    $("input[name='storePwd']").on("click",function(){
+    $("input[name='storePwd']").on("click", function () {
         layer.msg($(this))
     })
 
-    function errmsgHtml(show,errmsg) {
+    function errmsgHtml(show, errmsg) {
         if (!show) {
             $(".l_err").hide();
         } else {
@@ -53,4 +53,13 @@ $(function () {
             $(".l_err").show();
         }
     }
+
+    //切换列表跳转到对应的页面
+    /*$("select[name='loginModel']").next().find(".layui-input").on("click",function () {
+        //判断是否是正常操作
+
+    })*/
+    $("body").on("click", "dl dd", function () {
+        alert($("select[name='loginModel']").val())
+    })
 })
