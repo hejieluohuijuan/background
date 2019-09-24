@@ -9,4 +9,9 @@
       SELECT MODEL_NAME FROM LOGIN_SWITCH_DATA
         WHERE DELETE_FLAG='0'
     </select>
+    <update id="editLoginModel">
+        UPDATE ${tableName}
+        SET ${column}='${value}'
+        WHERE ${whereColumn}='${whereValue}'
+    </update>
 </mapper>

@@ -11,6 +11,9 @@ import java.util.List;
  * @Version: 1.0
  */
 public interface LoginDao {
-    List<HashMap<String,Object>> loginModel();
-    List<HashMap<String,Object>> loginModelData();
+    List<HashMap<String, Object>> loginModel();
+
+    List<HashMap<String, Object>> loginModelData();
+
+    int editLoginModel(String tableName,String column,String value,String whereColumn,String whereValue);
 }

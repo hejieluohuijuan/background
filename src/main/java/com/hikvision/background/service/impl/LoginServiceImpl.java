@@ -17,14 +17,23 @@ import java.util.List;
  */
 @Service
 public class LoginServiceImpl implements LoginService {
+    private static final String TB_NAME = "LOGIN_SWITCH";
+
     @Autowired
     private LoginDao loginDao;
+
     @Override
     public List<HashMap<String, Object>> loginModel() {
         return loginDao.loginModel();
     }
+
     @Override
     public List<HashMap<String, Object>> loginModelData() {
         return loginDao.loginModelData();
+    }
+
+    @Override
+    public int editLoginModel(String value) {
+        return loginDao.editLoginModel(TB_NAME,"MODEL_NAME",value,"DELETE_FLAG","0");
     }
 }

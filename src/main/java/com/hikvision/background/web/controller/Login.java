@@ -46,6 +46,13 @@ public class Login implements WebMvcConfigurer {
         return modelName;
     }
 
+    @PostMapping("switchLogin")
+    public String switchLogin() {
+        String modelName = SessionUtil.getPara("modelName");
+        loginService.editLoginModel(modelName);
+        return modelName;
+    }
+
     @ResponseBody
     @PostMapping(value = "/user/login")
     public String login() {
@@ -59,8 +66,8 @@ public class Login implements WebMvcConfigurer {
             //如果勾选的话七天面登录
             if (storePwd.equals("true")) {
                 //保存七天
-                boolean save=userService.saveSevenDayUser(sysUser);
-            }else{
+                boolean save = userService.saveSevenDayUser(sysUser);
+            } else {
                 userService.delSevenDaoUser();
             }
             return AttrConstants.SUCCESS;
@@ -82,6 +89,6 @@ public class Login implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 添加拦截的请求，并排除几个不拦截的请求
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/index.html", "/", "/user/login", "/static/**", "/login", "/login.html","/resourceData/*");
+                .excludePathPatterns("/index.html", "/", "/user/login", "/static/**", "/login", "/login.html", "/resourceData/*", "/switchLogin");
     }
 }

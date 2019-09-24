@@ -51,5 +51,9 @@ public class BackgroundApplicationTests {
     public void resourceData(){
         HashMap<String, Object> urlPathName = resourceService.getUrlPathName("LOGIN_HEAD_IMG", "DELETE_FLAG", "0");
     }
+    @Test
+    public void modelSwitch(){
+        loginService.editLoginModel("/login");
+    }
 
 }
