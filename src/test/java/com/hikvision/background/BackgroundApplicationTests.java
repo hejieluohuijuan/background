@@ -1,6 +1,7 @@
 package com.hikvision.background;
 
 import com.hikvision.background.kerny.pojo.SysUser;
+import com.hikvision.background.service.LoginService;
 import com.hikvision.background.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class BackgroundApplicationTests {
@@ -18,6 +22,8 @@ public class BackgroundApplicationTests {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private LoginService loginService;
 
     @Test
     public void contextLoads() {
@@ -31,6 +37,11 @@ public class BackgroundApplicationTests {
         sysUser.setUserName("admin");
         sysUser.setPassword("123456");
         SysUser user=userService.login(sysUser);
+
+    }
+    @Test
+    public void loginModel(){
+        List<HashMap<String, Object>> hashMaps = loginService.loginModel();
 
     }
 

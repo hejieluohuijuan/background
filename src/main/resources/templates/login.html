@@ -12,24 +12,24 @@
 <body>
 <!--登陆界面切换-->
 <div class="layui-form">
-    <select name="city" lay-verify="">
+    <!--<select name="city" lay-verify="">
         <option value="">请选择一个城市</option>
         <option value="010">北京</option>
         <option value="021">上海</option>
         <option value="0571">杭州</option>
-    </select>
+    </select>-->
 </div>
 <div class="out_login">
     <form class="layui-form" action="/user/login" method="post" id="formGrid">
         <div class="title"><h2>登录</h2></div>
         <div class="l_err"><label class="err_msg"></label></div>
-        <input type="text" name="userName" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+        <input type="text" name="userName" required lay-verify="required" th:value="${userCookie.userName}" placeholder="请输入用户名" autocomplete="off"
                class="layui-input">
-        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+        <input type="password" name="password" required lay-verify="required" th:value="${userCookie.password}" placeholder="请输入密码" autocomplete="off"
                class="layui-input">
         <label class="layui-form-label">记住我</label>
         <div class="layui-input-block">
-            <input type="checkbox" name="storePwd" lay-skin="switch" lay-text="" lay-filter="switchTest" value="1">
+            <input type="checkbox" name="storePwd" lay-skin="switch" lay-text="" lay-filter="switchTest" />
         </div>
         <input type="button" class="layui-btn layui-btn-normal button" value="登录"/>
     </form>

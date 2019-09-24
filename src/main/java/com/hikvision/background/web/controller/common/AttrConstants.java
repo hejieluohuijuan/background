@@ -8,4 +8,5 @@ public class AttrConstants {
     public static final String LOGIN = "login";
     public static final String SUCCESS="success";
     public static final String ERROR = "error";
+    public static final String USER_COOKIE="userCookie";
 }

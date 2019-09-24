@@ -1,3 +1,4 @@
+var USER_COOKIE = "userCookie";
 $(function () {
     //隐藏登录错误信息
     errmsgHtml(false);
@@ -21,7 +22,7 @@ $(function () {
                 data: {
                     userName: userName,
                     password: password,
-                    storePwd: $("input[name='storePwd']").val()
+                    storePwd: $("input[name='storePwd']").next().hasClass("layui-form-onswitch") ? "true" : "false"
                 },
                 success: function (datas) {
                     if (datas == "success") {
@@ -62,4 +63,22 @@ $(function () {
     $("body").on("click", "dl dd", function () {
         alert($("select[name='loginModel']").val())
     })
+    window.onload = function () {
+        //判读是否记住我
+        var cookie = document.cookie.split(";");
+        function getCK(mkey) {
+            for (var i = 0; i < cookie.length; i++) {
+                var kv = cookie[i].split("=");
+                if (kv[0].trim() == mkey) {
+                    return kv[1].trim();
+                }
+            }
+            return '';
+        }
+        var userNamePwd = getCK(USER_COOKIE);
+        if (userNamePwd != "" && userNamePwd != null) {
+            $("input[name='storePwd']").next().addClass("layui-form-onswitch");
+            $("input[name='storePwd']").attr("checked",true);
+        }
+    }
 })

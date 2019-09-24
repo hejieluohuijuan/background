@@ -90,9 +90,9 @@
 <div class="out_login">
     <form class="layui-form" action="/user/login" method="post" id="formGrid">
         <div class="l_err_gd"><div class="l_err"><label class="err_msg"></label></div></div>
-        <input type="text" name="userName" required lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+        <input type="text" name="userName" required lay-verify="required" th:value="${userCookie.userName}" placeholder="请输入用户名" autocomplete="off"
                class="tm_input">
-        <input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+        <input type="password" name="password" required lay-verify="required" th:value="${userCookie.password}" placeholder="请输入密码" autocomplete="off"
                class="tm_input">
         <input type="button" class="tm_button" value="登录"/>
 

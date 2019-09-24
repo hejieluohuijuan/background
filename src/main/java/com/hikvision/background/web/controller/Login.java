@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.config.annotation.*;
 
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -39,13 +40,15 @@ public class Login implements WebMvcConfigurer {
         String modelName = hashMaps.size() > 0 ? String.valueOf(hashMaps.get(0).get("modelName")) : ForwardConstants.LOGINBAK;
         //获取登录列表
         List<HashMap<String, Object>> hashMapsList = loginService.loginModelData();
+        //回显记住我功能呢
+        userService.reviewRememberSevenDay(model);
         model.addAttribute("modelLoginLists", hashMapsList);
         return modelName;
     }
 
     @ResponseBody
     @PostMapping(value = "/user/login")
-    public String login(HttpSession session) {
+    public String login() {
         SysUser sysUser = new SysUser();
         sysUser.setUserName(SessionUtil.getPara("userName"));
         sysUser.setPassword(SessionUtil.getPara("password"));
@@ -53,6 +56,13 @@ public class Login implements WebMvcConfigurer {
         //判断是否选择记住我七天免登录
         String storePwd = SessionUtil.getPara("storePwd");
         if (user != null) {
+            //如果勾选的话七天面登录
+            if (storePwd.equals("true")) {
+                //保存七天
+                boolean save=userService.saveSevenDayUser(sysUser);
+            }else{
+                userService.delSevenDaoUser();
+            }
             return AttrConstants.SUCCESS;
         }
         return AttrConstants.ERROR;

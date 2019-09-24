@@ -21,4 +21,12 @@ public class SysUser {
     private Integer updateUser;
     private Date createTime;
     private Date updateTime;
+
+    public SysUser(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public SysUser() {
+    }
 }
