@@ -2,6 +2,7 @@ package com.hikvision.background;
 
 import com.hikvision.background.kerny.pojo.SysUser;
 import com.hikvision.background.service.LoginService;
+import com.hikvision.background.service.ResourceService;
 import com.hikvision.background.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,6 +25,8 @@ public class BackgroundApplicationTests {
     private UserService userService;
     @Autowired
     private LoginService loginService;
+    @Autowired
+    private ResourceService resourceService;
 
     @Test
     public void contextLoads() {
@@ -43,6 +46,10 @@ public class BackgroundApplicationTests {
     public void loginModel(){
         List<HashMap<String, Object>> hashMaps = loginService.loginModel();
 
+    }
+    @Test
+    public void resourceData(){
+        HashMap<String, Object> urlPathName = resourceService.getUrlPathName("LOGIN_HEAD_IMG", "DELETE_FLAG", "0");
     }
 
 }
