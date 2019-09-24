@@ -11,13 +11,11 @@
 <title>登录</title>
 <body>
 <!--登陆界面切换-->
-<div class="layui-form">
-    <!--<select name="city" lay-verify="">
-        <option value="">请选择一个城市</option>
-        <option value="010">北京</option>
-        <option value="021">上海</option>
-        <option value="0571">杭州</option>
-    </select>-->
+<div class="layui-form model_switch">
+    <select name="loginModel" lay-verify="required" class="loginModel">
+        <option value="">登陆界面</option>
+        <option th:each="modelLogin,iterStat:${modelLoginLists}" th:value="${modelLogin.modelName}" th:text="|模式：${iterStat.index+1} |"></option>
+    </select>
 </div>
 <div class="out_login">
     <form class="layui-form" action="/user/login" method="post" id="formGrid">

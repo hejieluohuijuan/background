@@ -64,6 +64,23 @@ $(function () {
         alert($("select[name='loginModel']").val())
     })
     window.onload = function () {
+        $("select[name='loginModel']").next().find(".layui-anim-upbit dd").on("click",function () {
+            //判断是否是正常操作
+            var val = $("select[name='loginModel']").val();
+            $.ajax({
+                url: rootPath + "/switchLogin",
+                data: {
+                    modelName:val
+                },
+                success: function (datas) {
+                    window.location.href=rootPath+"/login"
+                },
+                error: function (datas) {
+                },
+                type: "post"
+            })
+
+        })
         //判读是否记住我
         var cookie = document.cookie.split(";");
         function getCK(mkey) {

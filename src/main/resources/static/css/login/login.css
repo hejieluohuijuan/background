@@ -48,3 +48,18 @@ input.layui-input{
 label.err_msg {
     padding-left: 10px;
 }
+
+.model_switch{
+    width:100px;
+}
+.model_switch input.layui-input.layui-unselect {
+    background-color: rgba(0,0,0, 0.3);
+    border: 0px;
+    color: white;
+}
+.model_switch dl.layui-anim.layui-anim-upbit {
+    background-color: rgba(0,0,0, 0.3);
+    color: white;
+    border-radius: 5px;
+    border: 0px;
+}

@@ -75,12 +75,6 @@
 <!--<p>谁比谁骚</p>-->
 <!--登陆界面切换-->
 <div class="layui-form model_switch">
-  <!--  <select name="model" lay-verify="" >
-        <option value="">登陆界面</option>
-        <option value="010">北京</option>
-        <option value="021">上海</option>
-        <option value="0571">杭州</option>
-    </select>-->
     <select name="loginModel" lay-verify="required" class="loginModel">
         <option value="">登陆界面</option>
         <option th:each="modelLogin,iterStat:${modelLoginLists}" th:value="${modelLogin.modelName}" th:text="|模式：${iterStat.index+1} |"></option>
