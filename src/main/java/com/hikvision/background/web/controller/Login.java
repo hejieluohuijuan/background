@@ -28,22 +28,29 @@ import java.util.List;
  * @date 2019/09/11
  **/
 @Controller
+@RequestMapping("/login/")
 public class Login implements WebMvcConfigurer {
     @Autowired
     private UserService userService;
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping("/login")
+    @RequestMapping("loginUI")
     public String toLogin(Model model) {
-        //跳转到登录页面根据后台的跳转页面
-        List<HashMap<String, Object>> hashMaps = loginService.loginModel();
-        String modelName = hashMaps.size() > 0 ? String.valueOf(hashMaps.get(0).get("modelName")) : ForwardConstants.LOGINBAK;
         //获取登录列表
         List<HashMap<String, Object>> hashMapsList = loginService.loginModelData();
         //回显记住我功能呢
         userService.reviewRememberSevenDay(model);
         model.addAttribute("modelLoginLists", hashMapsList);
+        return modelName();
+    }
+
+    @ResponseBody
+    @GetMapping("modelName")
+    public String modelName(){
+        //跳转到登录页面根据后台的跳转页面
+        List<HashMap<String, Object>> hashMaps = loginService.loginModel();
+        String modelName = hashMaps.size() > 0 ? String.valueOf(hashMaps.get(0).get("modelName")) : ForwardConstants.LOGIN;
         return modelName;
     }
     @ResponseBody
@@ -55,7 +62,7 @@ public class Login implements WebMvcConfigurer {
     }
 
     @ResponseBody
-    @PostMapping(value = "/user/login")
+    @PostMapping(value = "user/login")
     public String login() {
         SysUser sysUser = new SysUser();
         sysUser.setUserName(SessionUtil.getPara("userName"));
@@ -90,6 +97,6 @@ public class Login implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 添加拦截的请求，并排除几个不拦截的请求
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/index.html", "/", "/user/login", "/static/**", "/login", "/login.html", "/resourceData/*", "/switchLogin");
+                .excludePathPatterns("/index.html", "/", "/user/login", "/static/**", "/login/**", "/login.html", "/resourceData/*");
     }
 }
