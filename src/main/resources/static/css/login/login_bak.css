@@ -11,6 +11,7 @@
     /*background-color: red;*/
     margin: 0 auto;
     margin-top: 8%;
+    cursor: pointer;
 }
 
 .tm_input {
@@ -33,7 +34,12 @@ input.tm_button {
     margin-top: 26px;
     border: 0px;
     border-radius: 8px;
-    background-color:rgba(0,0,0, 0.3)
+    background-color:rgba(0,0,0, 0.3);
+    cursor: pointer;
+}
+input.tm_button:hover{
+    background-color:rgba(0,0,0, 0.5);
+   transition: 0.3s;
 }
 .l_err_gd{
     width: 80%;
@@ -54,4 +60,12 @@ input.tm_button {
 }
 label.err_msg {
     padding-left: 10px;
+}
+.savePwd{
+    width: 50px;
+    height: 50px;
+    margin-top: -19px;
+    float: left;
+    margin-left: 20%;
+    transition: 0.5s;
 }

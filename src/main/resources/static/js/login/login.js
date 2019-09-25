@@ -16,13 +16,20 @@ $(function () {
             errmsg += "密码不能为空";
         }
         if (check) {
+            var storePwd="false";
+            if($("input[name='storePwd']").length>0){
+                //该标签存在
+                storePwd=$("input[name='storePwd']").next().hasClass("layui-form-onswitch") ? "true" : "false"
+            }else{
+                storePwd=$(".img_head").find("div").hasClass("savePwd")? "true" : "false";
+            }
             //发送ajax
             $.ajax({
                 url: rootPath + "/user/login",
                 data: {
                     userName: userName,
                     password: password,
-                    storePwd: $("input[name='storePwd']").next().hasClass("layui-form-onswitch") ? "true" : "false"
+                    storePwd: storePwd
                 },
                 success: function (datas) {
                     if (datas == "success") {
@@ -72,7 +79,6 @@ $(function () {
         })
         //判读是否记住我
         var cookie = document.cookie.split(";");
-
         function getCK(mkey) {
             for (var i = 0; i < cookie.length; i++) {
                 var kv = cookie[i].split("=");
@@ -82,11 +88,14 @@ $(function () {
             }
             return '';
         }
-
         var userNamePwd = getCK(USER_COOKIE);
         if (userNamePwd != "" && userNamePwd != null) {
+            //模式1
             $("input[name='storePwd']").next().addClass("layui-form-onswitch");
             $("input[name='storePwd']").attr("checked", true);
+            //模式2
+            $(".img_head").find("div").addClass("savePwd");
+            $(".savePwd").css({"background-image": "url(static/images/icon/ok.png)", "background-size": "100% 100%"});
         }
     }
 })

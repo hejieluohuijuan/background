@@ -77,7 +77,7 @@
         <option th:each="modelLogin,iterStat:${modelLoginLists}" th:value="${modelLogin.modelName}" th:text="|模式：${iterStat.index+1} |"></option>
     </select>
 </div>
-<div class="img_head"></div>
+<div class="img_head" title="记住我"><div></div></div>
 <div class="out_login">
     <form class="layui-form" action="/user/login" method="post" id="formGrid">
         <div class="l_err_gd"><div class="l_err"><label class="err_msg"></label></div></div>
