@@ -79,7 +79,7 @@
 </div>
 <div class="img_head" title="记住我"><div></div></div>
 <div class="out_login">
-    <form class="layui-form" action="/user/login" method="post" id="formGrid">
+    <form class="layui-form" action="/login/user/login" method="post" id="formGrid">
         <div class="l_err_gd"><div class="l_err"><label class="err_msg"></label></div></div>
         <input type="text" name="userName" required lay-verify="required" th:value="${userCookie.userName}" placeholder="请输入用户名" autocomplete="off"
                class="tm_input">
@@ -122,6 +122,5 @@
     });
 
 </script>
-
 </body>
 </html>

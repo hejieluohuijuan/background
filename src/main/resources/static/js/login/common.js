@@ -25,7 +25,7 @@ $(function () {
             }
             //发送ajax
             $.ajax({
-                url: rootPath + "/user/login",
+                url: rootPath + "/login/user/login",
                 data: {
                     userName: userName,
                     password: password,
@@ -63,7 +63,7 @@ $(function () {
             var modelName = $("select[name='loginModel']").val();
             if(modelName!=null && modelName!=''){
                 $.ajax({
-                    url: rootPath + "/switchLogin",
+                    url: rootPath + "/login/switchLogin",
                     data: {modelName: modelName},
                     success: function (datas) {
                         window.location.href = rootPath + "/login"
@@ -71,6 +71,18 @@ $(function () {
                     type:"post"
                 })
             }
+        })
+        $.ajax({
+            url:rootPath+"/login/modelName",
+            success:function (datas) {
+                $("select[name='loginModel']").next().find("dd").each(function () {
+                    if($(this).attr("lay-value")==datas){
+                        $("select[name='loginModel']").next().find("dd").removeClass("layui-this")
+                        $(this).addClass("layui-this");
+                    }
+                })
+            },
+            type:"get"
         })
         //判读是否记住我
         var cookie = document.cookie.split(";");
