@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
 <link rel="stylesheet" href="static/css/login/login_bak.css">
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<script src='static/js/login/bak/prefixfree.min.js'></script>
-<script src="static/js/login/login.js"></script>
-<script src="static/js/login/login_bak.js"></script>
+<link rel="stylesheet" href="static/css/login/common.css">
 <style class="cp-pen-styles">
 
     p {
@@ -75,14 +72,8 @@
 <!--<p>谁比谁骚</p>-->
 <!--登陆界面切换-->
 <div class="layui-form model_switch">
-  <!--  <select name="model" lay-verify="" >
-        <option value="">登陆界面</option>
-        <option value="010">北京</option>
-        <option value="021">上海</option>
-        <option value="0571">杭州</option>
-    </select>-->
     <select name="loginModel" lay-verify="required" class="loginModel">
-        <option value="">登陆界面</option>
+        <option value="">界面</option>
         <option th:each="modelLogin,iterStat:${modelLoginLists}" th:value="${modelLogin.modelName}" th:text="|模式：${iterStat.index+1} |"></option>
     </select>
 </div>
@@ -100,6 +91,10 @@
 </div>
 <div class="stars">
 </div>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src='static/js/login/bak/prefixfree.min.js'></script>
+<script src="static/js/login/login.js"></script>
+<script src="static/js/login/login_bak.js"></script>
 <script src='static/js/login/bak/stopExecutionOnTimeout.js'></script>
 <script>
     $(document).ready(function () {

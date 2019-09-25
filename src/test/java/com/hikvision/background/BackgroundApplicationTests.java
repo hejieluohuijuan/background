@@ -53,7 +53,7 @@ public class BackgroundApplicationTests {
     }
     @Test
     public void modelSwitch(){
-        loginService.editLoginModel("/login");
+        loginService.editLoginModel("/login_bak");
     }
 
 }

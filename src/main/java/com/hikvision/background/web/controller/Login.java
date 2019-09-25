@@ -45,7 +45,7 @@ public class Login implements WebMvcConfigurer {
         model.addAttribute("modelLoginLists", hashMapsList);
         return modelName;
     }
-
+    @ResponseBody
     @PostMapping("switchLogin")
     public String switchLogin() {
         String modelName = SessionUtil.getPara("modelName");

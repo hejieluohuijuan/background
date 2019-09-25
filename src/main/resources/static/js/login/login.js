@@ -55,17 +55,24 @@ $(function () {
         }
     }
 
-    //切换列表跳转到对应的页面
-    /*$("select[name='loginModel']").next().find(".layui-input").on("click",function () {
-        //判断是否是正常操作
-
-    })*/
-    $("body").on("click", "dl dd", function () {
-        alert($("select[name='loginModel']").val())
-    })
     window.onload = function () {
+        //切换列表跳转到对应的页面
+        $("select[name='loginModel']").next().find("dd").on("click", function () {
+            var modelName = $("select[name='loginModel']").val();
+            if(modelName!=null && modelName!=''){
+            $.ajax({
+                url: rootPath + "/switchLogin",
+                data: {modelName: modelName},
+                success: function (datas) {
+                    window.location.href = rootPath + "/login"
+                },
+                type:"post"
+            })
+            }
+        })
         //判读是否记住我
         var cookie = document.cookie.split(";");
+
         function getCK(mkey) {
             for (var i = 0; i < cookie.length; i++) {
                 var kv = cookie[i].split("=");
@@ -75,10 +82,11 @@ $(function () {
             }
             return '';
         }
+
         var userNamePwd = getCK(USER_COOKIE);
         if (userNamePwd != "" && userNamePwd != null) {
             $("input[name='storePwd']").next().addClass("layui-form-onswitch");
-            $("input[name='storePwd']").attr("checked",true);
+            $("input[name='storePwd']").attr("checked", true);
         }
     }
 })

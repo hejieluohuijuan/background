@@ -1,7 +1,7 @@
 .out_login{
     width:330px;
     margin:0 auto;
-    margin-top:15%;
+    margin-top:10%;
     box-shadow: 0 0 30px #E3E3E3;
 }
 .title h2{
@@ -9,7 +9,7 @@
     padding-top:20px;
     font-weight: bold;
 }
-input{
+#formGrid input{
     margin-top:12px;
     border-radius: 5px;
 
@@ -17,7 +17,7 @@ input{
 button{
     margin-top:12px;
 }
-input.layui-input{
+#formGrid input.layui-input{
     width:80%;
     margin-left:10%;
 }

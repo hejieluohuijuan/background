@@ -2,22 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:include="common/common :: copyCommon"></head>
 <link rel="stylesheet" href="static/css/login/login.css">
-<script src="static/plugin/validate/jquery.validate.js"></script>
-<script src="static/js/login/login.js"></script>
-<srcipt type="text/javascript" src="static/js/common/dynamicImgLine.js"></srcipt>
-<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<link rel="stylesheet" href="static/css/login/common.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>登录</title>
 <body>
+<style>
+    .model_switch input.layui-input.layui-unselect {
+        background-color: rgba(195, 193, 195, 0.3);
+    }
+</style>
 <!--登陆界面切换-->
-<div class="layui-form">
-    <!--<select name="city" lay-verify="">
-        <option value="">请选择一个城市</option>
-        <option value="010">北京</option>
-        <option value="021">上海</option>
-        <option value="0571">杭州</option>
-    </select>-->
+<div class="layui-form model_switch">
+    <select name="loginModel" lay-verify="required" class="loginModel">
+        <option value="">界面</option>
+        <option th:each="modelLogin,iterStat:${modelLoginLists}" th:value="${modelLogin.modelName}" th:text="|模式：${iterStat.index+1} |"></option>
+    </select>
 </div>
 <div class="out_login">
     <form class="layui-form" action="/user/login" method="post" id="formGrid">
@@ -34,5 +34,9 @@
         <input type="button" class="layui-btn layui-btn-normal button" value="登录"/>
     </form>
 </div>
+<script src="static/plugin/validate/jquery.validate.js"></script>
+<script src="static/js/login/login.js"></script>
+<srcipt type="text/javascript" src="static/js/common/dynamicImgLine.js"></srcipt>
+<script type="text/javascript" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 </body>
 </html>
