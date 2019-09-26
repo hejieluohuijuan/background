@@ -28,14 +28,13 @@ import java.util.List;
  * @date 2019/09/11
  **/
 @Controller
-@RequestMapping("/login/")
 public class Login implements WebMvcConfigurer {
     @Autowired
     private UserService userService;
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping("loginUI")
+    @RequestMapping("/login")
     public String toLogin(Model model) {
         //获取登录列表
         List<HashMap<String, Object>> hashMapsList = loginService.loginModelData();
@@ -46,7 +45,7 @@ public class Login implements WebMvcConfigurer {
     }
 
     @ResponseBody
-    @GetMapping("modelName")
+    @GetMapping("/login/modelName")
     public String modelName(){
         //跳转到登录页面根据后台的跳转页面
         List<HashMap<String, Object>> hashMaps = loginService.loginModel();
@@ -54,7 +53,7 @@ public class Login implements WebMvcConfigurer {
         return modelName;
     }
     @ResponseBody
-    @PostMapping("switchLogin")
+    @PostMapping("/login/switchLogin")
     public String switchLogin() {
         String modelName = SessionUtil.getPara("modelName");
         loginService.editLoginModel(modelName);
@@ -62,7 +61,7 @@ public class Login implements WebMvcConfigurer {
     }
 
     @ResponseBody
-    @PostMapping(value = "user/login")
+    @PostMapping(value = "/login/user/login")
     public String login() {
         SysUser sysUser = new SysUser();
         sysUser.setUserName(SessionUtil.getPara("userName"));
