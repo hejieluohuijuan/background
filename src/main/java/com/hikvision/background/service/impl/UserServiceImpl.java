@@ -35,9 +35,10 @@ public class UserServiceImpl implements UserService {
     public SysUser login(SysUser sysUser) {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         //Md5对密码进行加密匹配
-        String strMD5Pwd = MD5Tools.getStrrMD5(sysUser.getPassword());
-        sysUser.setPassword(strMD5Pwd);
-        SysUser user = userDao.login(sysUser);
+        SysUser user = userDao.login(new SysUser(sysUser.getUserName(), MD5Tools.getStrrMD5(sysUser.getPassword())));
+        if (user != null) {
+            user.setPassword(sysUser.getPassword());
+        }
         attr.getRequest().getSession().setAttribute("loginUser", user);
         return user;
     }
