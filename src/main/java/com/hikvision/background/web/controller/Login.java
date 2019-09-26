@@ -96,6 +96,6 @@ public class Login implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         // 添加拦截的请求，并排除几个不拦截的请求
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                .excludePathPatterns("/index.html", "/", "/user/login", "/static/**", "/login/**", "/login.html", "/resourceData/*");
+                .excludePathPatterns("/index.html", "/", "/static/**", "/login/**", "/login.html", "/resourceData/*");
     }
 }

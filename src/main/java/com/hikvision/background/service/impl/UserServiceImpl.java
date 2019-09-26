@@ -4,6 +4,8 @@ import com.hikvision.background.dao.UserDao;
 import com.hikvision.background.kerny.pojo.SysUser;
 import com.hikvision.background.service.UserService;
 import com.hikvision.background.web.controller.common.AttrConstants;
+import com.hikvision.background.web.util.EncryptUtils;
+import com.hikvision.background.web.util.MD5Tools;
 import com.hikvision.background.web.util.SessionUtil.SessionUtil;
 import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public SysUser login(SysUser sysUser) {
         ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-
+        //Md5对密码进行加密匹配
+        String strMD5Pwd = MD5Tools.getStrrMD5(sysUser.getPassword());
+        sysUser.setPassword(strMD5Pwd);
         SysUser user = userDao.login(sysUser);
         attr.getRequest().getSession().setAttribute("loginUser", user);
         return user;
@@ -66,9 +70,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delSevenDaoUser() {
         Cookie[] cookies = SessionUtil.getRequest().getCookies();
-        for (int i = 0;cookies != null && i < cookies.length; i++) {
+        for (int i = 0; cookies != null && i < cookies.length; i++) {
             if (AttrConstants.USER_COOKIE.equals(cookies[i].getName())) {
-                Cookie delUserCookie=new Cookie(AttrConstants.USER_COOKIE,"");
+                Cookie delUserCookie = new Cookie(AttrConstants.USER_COOKIE, "");
                 delUserCookie.setMaxAge(0);
                 delUserCookie.setPath(SessionUtil.getRequest().getContextPath());
                 SessionUtil.getResponse().addCookie(delUserCookie);
