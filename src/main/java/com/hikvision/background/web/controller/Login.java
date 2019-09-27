@@ -10,10 +10,7 @@ import com.hikvision.background.web.util.SessionUtil.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.*;
 
 
@@ -27,8 +24,9 @@ import java.util.List;
  * @author 何杰
  * @date 2019/09/11
  **/
-@Controller
-public class Login implements WebMvcConfigurer {
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RestController
+public class Login /*implements WebMvcConfigurer*/ {
     @Autowired
     private UserService userService;
     @Autowired
@@ -71,7 +69,7 @@ public class Login implements WebMvcConfigurer {
         String storePwd = SessionUtil.getPara("storePwd");
         if (user != null) {
             //如果勾选的话七天面登录
-            if (storePwd.equals("true")) {
+            if ("true".equals(storePwd)) {
                 //保存七天
                 boolean save = userService.saveSevenDayUser(sysUser);
             } else {
@@ -82,7 +80,7 @@ public class Login implements WebMvcConfigurer {
         return AttrConstants.ERROR;
     }
 
-    //修改默认静态资源位置
+  /*  //修改默认静态资源位置
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //需要配置1：----------- 需要告知系统，这是要被当成静态文件的！
@@ -97,5 +95,5 @@ public class Login implements WebMvcConfigurer {
         // 添加拦截的请求，并排除几个不拦截的请求
         registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
                 .excludePathPatterns("/index.html", "/", "/static/**", "/login/**", "/login.html", "/resourceData/*");
-    }
+    }*/
 }
