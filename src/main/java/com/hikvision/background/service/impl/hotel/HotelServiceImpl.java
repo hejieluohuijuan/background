@@ -1,9 +1,13 @@
 package com.hikvision.background.service.impl.hotel;
 
+import com.hikvision.background.dao.hotel.HotelDao;
 import com.hikvision.background.service.hotel.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: hejie
@@ -14,9 +18,16 @@ import java.util.HashMap;
  */
 @Service
 public class HotelServiceImpl implements HotelService {
+    @Autowired
+    private HotelDao hotelDao;
 
     @Override
     public HashMap<String, Object> hotelAllOrById(String hotelId) {
         return null;
+    }
+
+    @Override
+    public List<Map<String, Object>> findHotelByAttribute(Map<String, Object> map) {
+        return hotelDao.findHotelByAttribute(map);
     }
 }

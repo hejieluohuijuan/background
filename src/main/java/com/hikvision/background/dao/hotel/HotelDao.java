@@ -1,5 +1,8 @@
 package com.hikvision.background.dao.hotel;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Author: hejie
  * @date: 2019/9/27 20:38
@@ -8,4 +11,5 @@ package com.hikvision.background.dao.hotel;
  * @Version: 1.0
  */
 public interface HotelDao {
+    List<Map<String, Object>> findHotelByAttribute(Map<String, Object> map);
 }

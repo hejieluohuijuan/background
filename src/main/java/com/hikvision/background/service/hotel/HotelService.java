@@ -1,6 +1,8 @@
 package com.hikvision.background.service.hotel;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: hejie
@@ -11,4 +13,6 @@ import java.util.HashMap;
  */
 public interface HotelService {
     HashMap<String,Object> hotelAllOrById(String hotelId);
+
+    List<Map<String, Object>> findHotelByAttribute(Map<String, Object> map);
 }
