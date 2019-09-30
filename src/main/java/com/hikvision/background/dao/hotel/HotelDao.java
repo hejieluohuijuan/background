@@ -12,4 +12,6 @@ import java.util.Map;
  */
 public interface HotelDao {
     List<Map<String, Object>> findHotelByAttribute(Map<String, Object> map);
+
+    int updateByAttribute(String column, String value,String whereColumn,String whereValue);
 }

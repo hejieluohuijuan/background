@@ -18,6 +18,8 @@ import java.util.Map;
  */
 @Service
 public class HotelServiceImpl implements HotelService {
+    private final String WHERE_COLUMN = "DELETE_FLAG";
+    private final String FLAG = "1";
     @Autowired
     private HotelDao hotelDao;
 
@@ -29,5 +31,11 @@ public class HotelServiceImpl implements HotelService {
     @Override
     public List<Map<String, Object>> findHotelByAttribute(Map<String, Object> map) {
         return hotelDao.findHotelByAttribute(map);
+    }
+
+    @Override
+    public int delete(String column, String value) {
+        //通过字段内容进行逻辑删除
+        return hotelDao.updateByAttribute(column, value, WHERE_COLUMN, FLAG);
     }
 }

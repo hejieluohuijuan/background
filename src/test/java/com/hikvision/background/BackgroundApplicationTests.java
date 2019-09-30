@@ -80,4 +80,9 @@ public class BackgroundApplicationTests {
             System.out.println(mapsingle.get("hotelName"));
         }
     }
+    @Test
+    public void deleHotelById(){
+        int attfact= hotelService.delete("HOTEL_ID", "1001");
+        System.out.println(attfact);
+    }
 }

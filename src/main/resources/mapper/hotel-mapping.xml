@@ -45,4 +45,8 @@
             limit #{offset},#{pageCount}
         </if>
     </select>
+    <update id="updateByAttribute">
+        UPDATE HOTEL SET ${whereColumn}="${whereValue}"
+        WHERE ${column}="${value}"
+    </update>
 </mapper>

@@ -15,4 +15,6 @@ public interface HotelService {
     HashMap<String,Object> hotelAllOrById(String hotelId);
 
     List<Map<String, Object>> findHotelByAttribute(Map<String, Object> map);
+
+    int delete(String column, String value);
 }
