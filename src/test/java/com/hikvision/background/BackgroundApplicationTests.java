@@ -104,8 +104,6 @@ public class BackgroundApplicationTests {
         map.put("hotelService", "设施服务");
         map.put("hotelFacility", "旅馆设备");
         map.put("roomFacility", "房间设施");
-        int i = hotelService.addHotel(map);
-        System.out.println(i);
     }
 
     @Test

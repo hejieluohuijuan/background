@@ -12,7 +12,7 @@ import java.util.HashMap;
  * @Version: 1.0
  */
 @TableAnnotation(tableName = "HOTEL", id = "ID")
-public class HotelEntity extends HashMap {
+public class HotelEntity extends HashMap<String,Object> {
     /**
      *
      */
