@@ -1,9 +1,7 @@
 package com.hikvision.background.service;
 
-import com.hikvision.background.kerny.pojo.SysUser;
+import com.hikvision.background.kernel.pojo.SysUser;
 import org.springframework.ui.Model;
-
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author 何杰

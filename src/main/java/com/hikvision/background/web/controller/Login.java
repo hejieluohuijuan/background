@@ -1,21 +1,16 @@
 package com.hikvision.background.web.controller;
 
-import com.hikvision.background.kerny.pojo.SysUser;
+import com.hikvision.background.kernel.pojo.SysUser;
 import com.hikvision.background.service.LoginService;
 import com.hikvision.background.service.UserService;
 import com.hikvision.background.web.controller.common.AttrConstants;
 import com.hikvision.background.web.controller.common.ForwardConstants;
-import com.hikvision.background.web.controller.component.LoginHandlerInterceptor;
 import com.hikvision.background.web.util.SessionUtil.SessionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.*;
 
 
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 

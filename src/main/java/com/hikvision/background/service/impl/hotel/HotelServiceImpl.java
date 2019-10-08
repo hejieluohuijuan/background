@@ -38,4 +38,9 @@ public class HotelServiceImpl implements HotelService {
         //通过字段内容进行逻辑删除
         return hotelDao.updateByAttribute(column, value, WHERE_COLUMN, FLAG);
     }
+
+    @Override
+    public int addHotel(Map<String, Object> map) {
+        return hotelDao.addHotel(map);
+    }
 }

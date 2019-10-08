@@ -17,4 +17,6 @@ public interface HotelService {
     List<Map<String, Object>> findHotelByAttribute(Map<String, Object> map);
 
     int delete(String column, String value);
+
+    int addHotel(Map<String, Object> map);
 }

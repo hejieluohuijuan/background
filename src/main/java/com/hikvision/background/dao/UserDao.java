@@ -1,6 +1,6 @@
 package com.hikvision.background.dao;
 
-import com.hikvision.background.kerny.pojo.SysUser;
+import com.hikvision.background.kernel.pojo.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

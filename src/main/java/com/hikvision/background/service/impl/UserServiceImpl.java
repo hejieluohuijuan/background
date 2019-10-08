@@ -1,13 +1,11 @@
 package com.hikvision.background.service.impl;
 
 import com.hikvision.background.dao.UserDao;
-import com.hikvision.background.kerny.pojo.SysUser;
+import com.hikvision.background.kernel.pojo.SysUser;
 import com.hikvision.background.service.UserService;
 import com.hikvision.background.web.controller.common.AttrConstants;
-import com.hikvision.background.web.util.EncryptUtils;
 import com.hikvision.background.web.util.MD5Tools;
 import com.hikvision.background.web.util.SessionUtil.SessionUtil;
-import org.apache.catalina.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -15,7 +13,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author 何杰

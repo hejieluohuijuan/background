@@ -1,4 +1,4 @@
-package com.hikvision.background.kerny.pojo;
+package com.hikvision.background.kernel.pojo;
 
 import lombok.Data;
 import lombok.ToString;
