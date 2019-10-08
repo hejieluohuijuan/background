@@ -15,5 +15,4 @@ public interface HotelDao {
 
     int updateByAttribute(String column, String value,String whereColumn,String whereValue);
 
-    int addHotel(Map<String, Object> map);
 }

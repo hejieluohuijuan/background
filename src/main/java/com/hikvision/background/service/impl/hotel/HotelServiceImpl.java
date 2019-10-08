@@ -39,8 +39,4 @@ public class HotelServiceImpl implements HotelService {
         return hotelDao.updateByAttribute(column, value, WHERE_COLUMN, FLAG);
     }
 
-    @Override
-    public int addHotel(Map<String, Object> map) {
-        return hotelDao.addHotel(map);
-    }
 }

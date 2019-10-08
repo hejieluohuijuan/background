@@ -18,5 +18,4 @@ public interface HotelService {
 
     int delete(String column, String value);
 
-    int addHotel(Map<String, Object> map);
 }

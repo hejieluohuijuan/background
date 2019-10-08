@@ -57,11 +57,4 @@
         UPDATE HOTEL SET ${whereColumn}="${whereValue}"
         WHERE ${column}="${value}"
     </update>
-    <!--添加酒店-->
-    <insert id="addHotel" parameterType="java.util.HashMap">
-        /*INSERT INTO HOTEL(HOTEL_NAME,HOTEL_LOCATION,HOTEL_SCORE,HOTEL_RATE,HOTEL_REBUILDTIME,MAIN_FACILITY,HOTEL_SERVICE,HOTEL_FACILITY,ROOM_FACILITY)
-        VALUES('#{hotelName}','#{hotelLocation}',#{hotelScore},#{hotelRate},#{hotelbuildtime},#{hotelRebuildtime},'#{mainFacility}','#{hotelService}','#{hotelFacility}','#{roomFacility}')*/
-        INSERT INTO HOTEL(HOTEL_NAME,HOTEL_LOCATION,HOTEL_SCORE,HOTEL_RATE,MAIN_FACILITY,HOTEL_SERVICE,HOTEL_FACILITY,ROOM_FACILITY)
-        VALUES(#{hotelName,jdbcType=VARCHAR},#{hotelLocation,jdbcType=VARCHAR},#{hotelScore,jdbcType=FLOAT },#{hotelRate,jdbcType=INTEGER},#{mainFacility,jdbcType=VARCHAR},#{hotelService,jdbcType=VARCHAR},#{hotelFacility,jdbcType=VARCHAR},#{roomFacility,jdbcType=VARCHAR})
-    </insert>
 </mapper>
